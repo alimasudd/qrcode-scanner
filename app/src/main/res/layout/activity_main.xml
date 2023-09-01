@@ -7,5 +7,30 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/barcode_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Waiting for Scan"
+            android:textSize="18sp" />
+
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Scan Code"
+            android:onClick="scanCode"
+            android:textSize="18sp"
+            android:layout_marginTop="20sp" />
+
+    </LinearLayout>
+
 
 </RelativeLayout>
