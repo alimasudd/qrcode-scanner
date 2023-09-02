@@ -27,4 +27,25 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    @SuppressLint("SetTextI18n")
+    fun scanCode() {
+        val options = GmsBarcodeScannerOptions.Builder()
+            .setBarcodeFormats(
+                Barcode.FORMAT_QR_CODE,
+                Barcode.FORMAT_EAN_13)
+            .build()
+        val scanner = GmsBarcodeScanning.getClient(this, options)
+        val barcodeValue = findViewById<TextView>(R.id.barcode_value)
+        scanner.startScan()
+            .addOnSuccessListener { barcode ->
+                val rawValue: String? = barcode.rawValue
+                barcodeValue.text = rawValue
+                if(barcode.valueType == Barcode.TYPE_URL) {
+                    val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(rawValue))
+                    startActivity(browserIntent)
+                }
+            }
+
+    }
+
 }
