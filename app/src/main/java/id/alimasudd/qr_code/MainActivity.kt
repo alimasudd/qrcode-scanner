@@ -45,6 +45,11 @@ class MainActivity : AppCompatActivity() {
                     val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(rawValue))
                     startActivity(browserIntent)
                 }
+            }.addOnCanceledListener {
+                barcodeValue.text = "Scan Cancelled"
+            }.addOnFailureListener { e ->
+                Toast.makeText(this, "Barcode scanning failed $e", Toast.LENGTH_SHORT).show()
+
             }
 
     }
