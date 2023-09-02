@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
         // on below line we are adding on click
         // listener for our generate QR button.
         generateQRBtn.setOnClickListener {
+            scanCode();
         }
 
 
